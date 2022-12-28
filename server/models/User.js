@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    friends: {
+    friendsList: {
       type: String,
       default: [],
     },
