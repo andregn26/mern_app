@@ -4,41 +4,41 @@ const UserSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      require: true,
+      required: true,
       min: 2,
       max: 50,
     },
     lastName: {
       type: String,
-      require: true,
+      required: true,
       min: 2,
       max: 50,
     },
     email: {
       type: String,
-      require: true,
+      required: true,
       max: 50,
       unique: true,
     },
     password: {
       type: String,
-      require: true,
-      min: 6,
+      required: true,
+      min: 5,
     },
     picturePath: {
       type: String,
       default: "",
     },
-    friendsList: {
-      type: String,
+    friends: {
+      type: Array,
       default: [],
     },
     location: String,
     occupation: String,
+    viewedProfile: Number,
+    impressions: Number,
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 )
 
 const User = mongoose.model("User", UserSchema)
