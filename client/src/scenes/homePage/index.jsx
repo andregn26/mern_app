@@ -3,6 +3,8 @@ import UserWidget from "scenes/widgets/UserWidget"
 import MyPostWidget from "scenes/widgets/MyPostWidget"
 import { Box, useMediaQuery } from "@mui/material"
 import { useSelector } from "react-redux"
+import PostsWidget from "scenes/widgets/PostsWidget"
+import FriendsListWidget from "scenes/widgets/FriendsListWidget"
 
 const HomePage = () => {
   const isNonMobile = useMediaQuery("(min-width:1000px)")
@@ -22,8 +24,15 @@ const HomePage = () => {
         </Box>{" "}
         <Box flexBasis={isNonMobile ? "42%" : undefined} mt="2rem">
           <MyPostWidget picturePath={picturePath} />
+          <Box mt="2rem">
+            <PostsWidget userId={_id} />
+          </Box>
         </Box>{" "}
-        {isNonMobile && <Box flexBasis="26%"></Box>}
+        {isNonMobile && (
+          <Box flexBasis="26%">
+            <FriendsListWidget userId={_id} />
+          </Box>
+        )}
       </Box>
     </Box>
   )
